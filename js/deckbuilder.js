@@ -23,8 +23,13 @@ function build() {
 
         for (i=0; i<num; i++){
             img = output.appendChild(document.createElement("img"));
-            img.onerror = function() { img.setAttribute("style", "display: none;"); errors.innerHTML += "<li>Could not find " + name + "</li>"; };
+            img.id = name;
             img.src = "cards/"+name+".jpg"
+
+            img.onerror = function() { 
+                this.parentNode.removeChild(this);  
+                errors.innerHTML += "<li class='error'>Error: sorry, could not find card " + this.id + "</li>"; 
+            };
         }
     });
 }

@@ -5,8 +5,17 @@
     height: 200px;
 }
 
+.error {
+    color: red;
+}
+
 @media print {
-    .np {
-        display: none !important;
+    .np { display: none !important; }
+
+    img { height: 88mm;  width: 63mm !important; }
+
+    @page { 
+        margin-top: 1.5in; 
+        margin-left: 1.5in; 
     }
 }
